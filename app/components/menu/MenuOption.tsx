@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 5,
+    margin: 1,
   },
   circularButtonText: {
     color: '#FFF',
