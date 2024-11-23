@@ -18,6 +18,8 @@ const HomeScreen = () => {
   const menuOptions = [
     { id: '1', label: 'Login', action: () => router.push('./LoginScreen'), color: '#FF6347' },
     { id: '2', label: 'Sobre', action: () => router.push('./AboutScreen'), color: '#4682B4' },
+    { id: '3', label: 'Config', action: () => console.log('Config'), color: '#6A5ACD' }, // Exemplo de outro botão
+    { id: '4', label: 'Ajuda', action: () => console.log('Ajuda'), color: '#32CD32' },   // Exemplo de outro botão
   ];
 
   const toggleMenu = () => {
@@ -42,10 +44,13 @@ const HomeScreen = () => {
     outputRange: [1, 0.6], // Opacidade do botão flutuante
   });
 
-  const circularMenuStyles = menuOptions.map((_, index) => {
-    const angle = (Math.PI / (menuOptions.length - 1)) * index;
-    const x = Math.cos(angle) * 100; // Ajuste o raio aqui
-    const y = Math.sin(angle) * 100;
+  const circularMenuStyles = menuOptions.map((_, index, array) => {
+    const angle = (Math.PI / 4) * (index + 1); 
+    const radius = 100; 
+    const x = Math.cos(angle) * radius * 1.4; 
+    const y = Math.sin(angle) * radius;
+
+    const scale = array.length > 6 ? 0.7 : 1;
 
     return {
       transform: [
@@ -58,27 +63,28 @@ const HomeScreen = () => {
         {
           translateY: animation.interpolate({
             inputRange: [0, 1],
-            outputRange: [0, -y], // Subtraindo para alinhar acima
+            outputRange: [0, -y], 
           }),
         },
+        { scale: animation.interpolate({ inputRange: [0, 1], outputRange: [0, scale] }) },
       ],
     };
   });
 
   return (
     <View style={styles.container}>
-  
+   
       <View style={styles.header}>
         <Text style={styles.logo}>MyBookShelf</Text>
         <TextInput placeholder="Buscar Livros" style={styles.searchInput} />
       </View>
 
-      
+    
       <View style={styles.content}>
         <Text>Bem-vindo ao MyBookShelf!</Text>
       </View>
 
-    
+      
       <TouchableOpacity
         style={[styles.floatingButton, { opacity: interpolatedOpacity }]}
         onPress={toggleMenu}
@@ -86,12 +92,16 @@ const HomeScreen = () => {
         <Icon name="menu" size={28} color="#FFF" />
       </TouchableOpacity>
 
-      {/* Botões em formato circular */}
+    
       {menuVisible &&
         menuOptions.map((item, index) => (
           <Animated.View
             key={item.id}
-            style={[styles.circularButton, circularMenuStyles[index], { backgroundColor: item.color }]}
+            style={[
+              styles.circularButton,
+              circularMenuStyles[index],
+              { backgroundColor: item.color },
+            ]}
           >
             <TouchableOpacity
               onPress={() => {
@@ -155,8 +165,8 @@ const styles = StyleSheet.create({
   },
   circularButton: {
     position: 'absolute',
-    bottom: 50,
-    right: 50,
+    bottom: 40, 
+    right: 40,
     borderRadius: 25,
     width: 50,
     height: 50,
