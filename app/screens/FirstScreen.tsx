@@ -49,13 +49,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   altButton: {
-    marginTop: 15, // Add some spacing
+    marginTop: 15, 
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#000',
-    backgroundColor: '#FFF', // Optional: you can change this color
+    backgroundColor: '#FFF', 
   },
   altButtonText: {
     color: '#000',
