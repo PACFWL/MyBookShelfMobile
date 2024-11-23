@@ -11,13 +11,13 @@ import {
 import Icon from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 
-const Home = () => {
+const HomeScreen = () => {
   const router = useRouter();
   const [menuVisible, setMenuVisible] = useState(false);
 
   const menuOptions = [
-    { id: '1', label: 'Ir para Login', action: () => router.push('/Login') },
-    { id: '2', label: 'Sobre nós', action: () => router.push('/About') },
+    { id: '1', label: 'Ir para Login', action: () =>  router.push('./LoginScreen') },
+    { id: '2', label: 'Sobre nós', action: () => router.push('./AboutScreen') },
   ];
 
   const toggleMenu = () => setMenuVisible(!menuVisible);
@@ -143,4 +143,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default HomeScreen;

@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Icon from '@expo/vector-icons/Ionicons'; // Biblioteca de ícones
-import { useRouter } from 'expo-router'; // Navegação com expo-router
+import Icon from '@expo/vector-icons/Ionicons'; 
+import { useRouter } from 'expo-router'; 
 
 const About = () => {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
-      {/* Cabeçalho com botão de retorno */}
+     
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <Icon name="arrow-back" size={24} color="#000" />
@@ -16,7 +16,6 @@ const About = () => {
         <Text style={styles.title}>Sobre nós</Text>
       </View>
 
-      {/* Conteúdo principal */}
       <View style={styles.content}>
         <Text style={styles.text}>
           Bem-vindo ao MyBookShelf! Somos apaixonados por ajudar leitores a se conectar, organizar suas listas de leitura, e descobrir novos livros.

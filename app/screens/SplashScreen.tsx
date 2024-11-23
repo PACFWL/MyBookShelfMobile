@@ -7,7 +7,7 @@ export default function SplashScreen() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      router.replace('./First'); 
+      router.replace('./FirstScreen'); 
     }, 3000); 
 
     return () => clearTimeout(timeout);
@@ -16,7 +16,7 @@ export default function SplashScreen() {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/images/mybookshelf-logo.png')} 
+        source={require('../../assets/images/mybookshelf-logo.png')} 
         style={styles.logo}
       />
       <Text style={styles.title}>Meu App MyBookShelf</Text>
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   logo: {
-    width: 100,
+    width: 200,
     height: 100,
     marginBottom: 20,
   },

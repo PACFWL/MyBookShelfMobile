@@ -1,23 +1,25 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router'; 
+import { useRouter } from 'expo-router';
 
-const Login = () => {
+const RegisterScreen = () => {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>MyBookShelf</Text>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Criar Conta</Text>
+      <TextInput placeholder="Username" style={styles.input} />
       <TextInput placeholder="Email" style={styles.input} keyboardType="email-address" />
       <TextInput placeholder="Senha" style={styles.input} secureTextEntry />
+      <TextInput placeholder="Confirmar Senha" style={styles.input} secureTextEntry />
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Entrar</Text>
+        <Text style={styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
       <Text style={styles.link}>
-        Não possui conta?{' '}
-        <Text style={styles.linkText} onPress={() => router.push('./register')}>
-          Cadastre-se!
+        Já possui conta?{' '}
+        <Text style={styles.linkText} onPress={() => router.push('./LoginScreen')}>
+          Entre
         </Text>
       </Text>
     </View>
@@ -71,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default RegisterScreen;

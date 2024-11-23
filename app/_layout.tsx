@@ -6,7 +6,7 @@ export default function AppLayout() {
 
 
   useEffect(() => {
-    router.replace('./SplashScreen');
+    router.replace('./screens/SplashScreen');
   }, []);
 
   return <Slot />;

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 
-const First = () => {
+const FirstScreen = () => {
   const router = useRouter();
 
   return (
@@ -11,12 +11,8 @@ const First = () => {
       <Text style={styles.subtitle}>
         Organize suas leituras, conecte-se com outros apaixonados por livros e explore um mundo de conhecimento!
       </Text>
-      <TouchableOpacity style={styles.button} onPress={() => router.push('/Login')}>
+      <TouchableOpacity style={styles.button} onPress={() => router.push('./HomeScreen')}>
         <Text style={styles.buttonText}>Conecte-se!</Text>
-      </TouchableOpacity>
-  
-      <TouchableOpacity style={styles.altButton} onPress={() => router.push('/Home')}>
-        <Text style={styles.altButtonText}>Entrar sem conta</Text>
       </TouchableOpacity>
     </View>
   );
@@ -67,4 +63,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default First;
+export default FirstScreen;
