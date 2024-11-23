@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import Icon from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 
 const RegisterScreen = () => {
@@ -7,21 +8,29 @@ const RegisterScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>MyBookShelf</Text>
-      <Text style={styles.title}>Criar Conta</Text>
-      <TextInput placeholder="Username" style={styles.input} />
-      <TextInput placeholder="Email" style={styles.input} keyboardType="email-address" />
-      <TextInput placeholder="Senha" style={styles.input} secureTextEntry />
-      <TextInput placeholder="Confirmar Senha" style={styles.input} secureTextEntry />
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Cadastrar</Text>
-      </TouchableOpacity>
-      <Text style={styles.link}>
-        Já possui conta?{' '}
-        <Text style={styles.linkText} onPress={() => router.push('./LoginScreen')}>
-          Entre
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+          <Icon name="arrow-back" size={24} color="#000" />
+        </TouchableOpacity>
+        <Text style={styles.title}>Criar Conta</Text>
+      </View>
+
+      <View style={styles.content}>
+        <Text style={styles.logo}>MyBookShelf</Text>
+        <TextInput placeholder="Username" style={styles.input} />
+        <TextInput placeholder="Email" style={styles.input} keyboardType="email-address" />
+        <TextInput placeholder="Senha" style={styles.input} secureTextEntry />
+        <TextInput placeholder="Confirmar Senha" style={styles.input} secureTextEntry />
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Cadastrar</Text>
+        </TouchableOpacity>
+        <Text style={styles.link}>
+          Já possui conta?{' '}
+          <Text style={styles.linkText} onPress={() => router.push('./LoginScreen')}>
+            Entre
+          </Text>
         </Text>
-      </Text>
+      </View>
     </View>
   );
 };
@@ -29,18 +38,31 @@ const RegisterScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#FFF',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#CCC',
+  },
+  backButton: {
+    marginRight: 10,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  content: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFF',
     padding: 20,
   },
   logo: {
     fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
   },
