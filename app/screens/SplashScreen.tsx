@@ -16,10 +16,10 @@ export default function SplashScreen() {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/images/mybookshelf-logo.png')} 
+        source={require('../../assets/images/book-black.png')} 
         style={styles.logo}
       />
-      <Text style={styles.title}>Meu App MyBookShelf</Text>
+      <Text style={styles.title}>MyBookShelf App</Text>
     </View>
   );
 }
@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   logo: {
-    width: 200,
-    height: 100,
-    marginBottom: 20,
+    width: 80,
+    height: 70,
+    marginBottom: 10,
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#333',
   },
