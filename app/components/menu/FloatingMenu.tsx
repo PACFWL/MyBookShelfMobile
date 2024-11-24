@@ -22,14 +22,14 @@ const FloatingMenu: React.FC<FloatingMenuProps> = ({ menuOptions }) => {
     if (menuVisible) {
       Animated.timing(animation, {
         toValue: 0,
-        duration: 400,
+        duration: 200,
         useNativeDriver: true,
       }).start(() => setMenuVisible(false));
     } else {
       setMenuVisible(true);
       Animated.timing(animation, {
         toValue: 1,
-        duration: 400,
+        duration: 200,
         useNativeDriver: true,
       }).start();
     }
@@ -37,7 +37,7 @@ const FloatingMenu: React.FC<FloatingMenuProps> = ({ menuOptions }) => {
 
   const circularMenuStyles = menuOptions.map((_, index) => {
     const angle = (Math.PI / 4) * (index + 1);
-    const radius = 100;
+    const radius = 50;
     return {
       transform: [
         { translateX: animation.interpolate({ inputRange: [0, 1], outputRange: [0, Math.cos(angle) * radius] }) },
