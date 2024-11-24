@@ -4,7 +4,6 @@ import { View, TextInput, Text, StyleSheet } from 'react-native';
 const Header = () => (
   <View style={styles.header}>
     <Text style={styles.logo}>MyBookShelf</Text>
-    <TextInput placeholder="Buscar Livros" style={styles.searchInput} />
   </View>
 );
 

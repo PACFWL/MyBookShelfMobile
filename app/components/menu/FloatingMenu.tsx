@@ -22,14 +22,14 @@ const FloatingMenu: React.FC<FloatingMenuProps> = ({ menuOptions }) => {
     if (menuVisible) {
       Animated.timing(animation, {
         toValue: 0,
-        duration: 300,
+        duration: 400,
         useNativeDriver: true,
       }).start(() => setMenuVisible(false));
     } else {
       setMenuVisible(true);
       Animated.timing(animation, {
         toValue: 1,
-        duration: 300,
+        duration: 400,
         useNativeDriver: true,
       }).start();
     }
