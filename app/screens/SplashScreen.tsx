@@ -16,7 +16,7 @@ export default function SplashScreen() {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/images/book-black.png')} 
+        source={require('../assets/images/book-black.png')} 
         style={styles.logo}
       />
       <Text style={styles.title}>MyBookShelf App</Text>

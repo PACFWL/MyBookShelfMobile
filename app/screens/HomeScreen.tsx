@@ -22,6 +22,7 @@ const HomeScreen = () => {
     { id: '1', label: 'Login', action: () => router.push('./LoginScreen'), color: '#FF6347' },
     { id: '2', label: 'Sobre', action: () => router.push('./AboutScreen'), color: '#4682B4' },
     { id: '3', label: 'Profile', action: () => router.push('./ProfileScreen'), color: '#4682B4' },
+    { id: '4', label: 'Book', action: () => router.push('./BookScreen'), color: '#4682B4' },
   ];
 
   

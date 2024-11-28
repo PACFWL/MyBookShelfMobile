@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import Icon from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 import { loginUser } from '../services/auth';
 
@@ -12,7 +13,7 @@ const LoginScreen = () => {
     try {
       const response = await loginUser(email, password);
       Alert.alert("Sucesso", "Login realizado com sucesso!");
-      router.push("./HomeScreen"); // Redireciona para a tela inicial
+      router.push("./HomeScreen");
     } catch (error: any) {
       Alert.alert("Erro", error.message || "Falha no login");
     }
@@ -20,6 +21,11 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
+      {/* Botão de Voltar */}
+      <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+        <Icon name="arrow-back" size={24} color="#000" />
+      </TouchableOpacity>
+
       <Text style={styles.logo}>MyBookShelf</Text>
       <TextInput
         placeholder="Email"
@@ -49,6 +55,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#FFF',
     padding: 20,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+    zIndex: 10,
   },
   logo: {
     fontSize: 24,
